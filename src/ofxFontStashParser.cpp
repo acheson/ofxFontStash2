@@ -210,6 +210,10 @@ void Parser::handleAttributes(xml_node & node, Style & currStyle){
 		string hex = attr.value();
 		currStyle.color = colorFromHex(hex);
 	}
+
+	if ((attr = node.attribute("line-height"))) {
+		currStyle.lineHeightMult = ofToFloat(attr.value());
+	}
 }
 
 ofColor Parser::colorFromHex(const string & hexS){
